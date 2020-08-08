@@ -30,14 +30,7 @@ export class CurrentWeatherComponent implements OnInit {
     this.weatherService.getCurrentWeather(loc)
       .subscribe(res => {
         this.currentWeather = res;
-      }, err => {
-        if (err.error && err.error.message) {
-          alert(err.error.message);
-          this.msg = err.error.message;
-          return;
-        }
-        alert('Failed to get weather.');
-      }, () => {
+      }, err => {}, () => {
 })
   }
   resultFound() {

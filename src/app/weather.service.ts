@@ -9,10 +9,7 @@ export class WeatherService {
   getCurrentWeather(loc: string) {
     return this.http.get(`${environment.apiUrl}/weather?q=${loc}&appid=${apiKey}&cnt=7&units=metric`)
   }
-  getForecast(loc: string) {
-    return this.http.get(`${environment.apiUrl}/forecast?q=${loc}&appid=${apiKey}&cnt=7&units=metric`)
+  getForecast(lat: bigint, lon:bigint) {
+    return this.http.get(`${environment.apiUrl}/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&cnt=7&units=metric`)
   }
-  // getDaily(lat: string, lon: string){
-  //   return this.http.get(`${environment.apiUrl}/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`)
-  // }
 }
