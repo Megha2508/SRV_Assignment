@@ -1,9 +1,13 @@
 <mat-toolbar>
   <span id='title'>Weather App</span>
   <form (ngSubmit)='search(searchForm)' #searchForm='ngForm'>
-    <mat-form-field class="form-field">
+    <!-- <mat-form-field class="form-field">
       <input matInput placeholder="Location" [(ngModel)]='loc' #lo='ngModel' name='lo' type='text'
         autocomplete="off">
+    </mat-form-field> -->
+    <mat-form-field class="form-field">
+      <input matInput placeholder="Zipcode" [(ngModel)]='zip' name='zip' type='number'
+      autocomplete="off">
     </mat-form-field>
     <button mat-button type='submit'>Search</button>
   </form>

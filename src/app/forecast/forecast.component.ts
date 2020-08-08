@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { WeatherService } from '../weather.service';
 import { Chart } from 'chart.js';
-import { findLast } from '@angular/compiler/src/directive_resolver';
 @Component({
   selector: 'app-forecast',
   templateUrl: './forecast.component.html',
@@ -60,8 +59,8 @@ export class ForecastComponent implements OnInit {
         this.alldates.forEach((res) => {
           let jsdate = new Date(res * 1000)
           weatherDates.push(jsdate.toLocaleString('en',{day: 'numeric'}))
+          Day.push(jsdate.toLocaleString('en',{weekday:'long'}))
         })
-        console.log(Day)
         temp_max.forEach((res) => {
           max.push(res)
         })
@@ -91,6 +90,9 @@ export class ForecastComponent implements OnInit {
           options: {
             tooltips:{
               callbacks: {
+                beforeBody: function(tooltipItem, data){
+                  return Day[tooltipItem[0].index]
+                },
                 afterBody: function(tooltipItem, data){
                   return "Condition: " + desc
                 }

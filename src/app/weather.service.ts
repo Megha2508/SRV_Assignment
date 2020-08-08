@@ -12,4 +12,7 @@ export class WeatherService {
   getForecast(lat: bigint, lon:bigint) {
     return this.http.get(`${environment.apiUrl}/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&cnt=7&units=metric`)
   }
+  getById(id: number){
+    return this.http.get(`${environment.apiUrl}/weather?q=${id}&appid=${apiKey}&cnt=7&units=metric`)
+  }
 }
