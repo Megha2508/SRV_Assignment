@@ -1,0 +1,14 @@
+<div *ngIf='resultFound()'>
+  <h1 class="center">Current weather forecast for {{currentWeather.name}}</h1>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5 class="center"> 7 Day Forecast</h5>
+    </div>
+    <div>
+      <canvas id="canvas">{{ chart }}</canvas>
+    </div>
+  </div>
+</div>
+<div *ngIf='!resultFound()'>
+  <h1 class="center">{{msg || 'Failed to get weather.'}}</h1>
+</div>
